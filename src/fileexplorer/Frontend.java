@@ -67,7 +67,7 @@ public class Frontend extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1307, 800));
+        setPreferredSize(new java.awt.Dimension(1200, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,7 +179,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 61, 45));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangle.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1308, 800));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1307, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
