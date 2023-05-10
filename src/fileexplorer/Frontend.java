@@ -3,7 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package fileexplorer;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.io.File;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import java.awt.Desktop;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JScrollPane;
 /**
  *
  * @author jawad
@@ -13,9 +27,11 @@ public class Frontend extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    FileFunction fileFunc=new FileFunction();
     public Frontend() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,6 +49,7 @@ public class Frontend extends javax.swing.JFrame {
         DownloadJButton = new javax.swing.JButton();
         SearchTextField = new javax.swing.JTextField();
         DisplayPanel = new javax.swing.JPanel();
+        BackPanel = new javax.swing.JScrollPane();
         DesktopJButton = new javax.swing.JButton();
         ThisPCJButton = new javax.swing.JButton();
         VideosJButton = new javax.swing.JButton();
@@ -53,7 +70,7 @@ public class Frontend extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/FILE EXPLORER.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 40));
 
         MusicJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 14.png"))); // NOI18N
         MusicJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +109,8 @@ public class Frontend extends javax.swing.JFrame {
 
         DisplayPanel.setBackground(new java.awt.Color(0, 102, 102));
         DisplayPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(8, 8, 8, 8, new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Rectangle 10.png")))); // NOI18N
+        DisplayPanel.add(BackPanel);
+
         getContentPane().add(DisplayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 880, 450));
 
         DesktopJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 7.png"))); // NOI18N
@@ -202,7 +221,45 @@ public class Frontend extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-
+    
+    public void startAgain(File []listFiles){
+        if(DisplayPanel.isAncestorOf(BackPanel))
+        {DisplayPanel.remove(BackPanel);}
+        JScrollPane BackPanel=new JScrollPane();
+        Dimension dim=DisplayPanel.getSize();
+        BackPanel.setPreferredSize(dim);
+        for(File file:listFiles){
+            System.out.println("File:"+file.getPath());
+            makeJButton(file);
+            }
+        DisplayPanel.add(BackPanel);
+        
+    }
+    public void makeJButton(File file){
+        String text;
+        if(file.getName()!="")
+        {text=file.getName();}
+        else
+        {text=file.getPath();}
+        JButton btn=new JButton();
+        btn.setText(text);
+        btn.setPreferredSize(new Dimension(100,30));
+        btn.addActionListener(new ActionListener(){
+        public void actionPerformed(ActionEvent e){
+            if(!(file.isDirectory())){   
+            try 
+            {Desktop.getDesktop().open(file);} 
+            catch (IOException ex) 
+            {Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);}
+            }
+            else
+            {
+            startAgain(file.listFiles());
+            }
+        }
+        });
+        DisplayPanel.add(btn);
+    }
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -229,14 +286,19 @@ public class Frontend extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
+        java.awt.EventQueue.invokeLater(new Runnable(){
+            
+            @Override
             public void run() {
-                new Frontend().setVisible(true);
+                Frontend front=new Frontend();
+                front.startAgain(front.fileFunc.getDrives());
+                front.setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane BackPanel;
     private javax.swing.JButton CopyJButton;
     private javax.swing.JButton DeleteJButton;
     private javax.swing.JButton DesktopJButton;
