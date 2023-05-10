@@ -34,7 +34,7 @@
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/FILE EXPLORER.png"/>
+          <Image iconType="3" name="/images/FILE EXPLORER.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -46,7 +46,7 @@
     <Component class="javax.swing.JButton" name="MusicJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 14.png"/>
+          <Image iconType="3" name="/images/Group 10.png"/>
         </Property>
       </Properties>
       <Events>
@@ -61,7 +61,7 @@
     <Component class="javax.swing.JButton" name="PicturesJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 10.png"/>
+          <Image iconType="3" name="/images/Group 10.png"/>
         </Property>
       </Properties>
       <Events>
@@ -76,7 +76,7 @@
     <Component class="javax.swing.JButton" name="DocumentJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 9.png"/>
+          <Image iconType="3" name="/images/Group 9.png"/>
         </Property>
       </Properties>
       <Events>
@@ -91,7 +91,7 @@
     <Component class="javax.swing.JButton" name="DownloadJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 8.png"/>
+          <Image iconType="3" name="/images/Group 8.png"/>
         </Property>
       </Properties>
       <Events>
@@ -123,7 +123,7 @@
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.MatteIconBorderInfo">
             <MatteIconBorder bottom="8" left="8" right="8" top="8">
-              <Image PropertyName="icon" iconType="3" name="/fileexplorer/Rectangle 10.png"/>
+              <Image PropertyName="icon" iconType="3" name="/images/Rectangle 10.png"/>
             </MatteIconBorder>
           </Border>
         </Property>
@@ -145,7 +145,7 @@
     <Component class="javax.swing.JButton" name="DesktopJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 7.png"/>
+          <Image iconType="3" name="/images/Group 7.png"/>
         </Property>
       </Properties>
       <Events>
@@ -160,7 +160,7 @@
     <Component class="javax.swing.JButton" name="ThisPCJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 6.png"/>
+          <Image iconType="3" name="/images/Group 6.png"/>
         </Property>
       </Properties>
       <Events>
@@ -175,7 +175,7 @@
     <Component class="javax.swing.JButton" name="VideosJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 12.png"/>
+          <Image iconType="3" name="/images/Group 12.png"/>
         </Property>
       </Properties>
       <Events>
@@ -190,7 +190,7 @@
     <Component class="javax.swing.JButton" name="jButton9">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 12.png"/>
+          <Image iconType="3" name="/images/Group 12.png"/>
         </Property>
       </Properties>
       <Events>
@@ -223,7 +223,7 @@
           <Color blue="0" green="0" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Vector.png"/>
+          <Image iconType="3" name="/images/Vector.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -235,7 +235,7 @@
     <Component class="javax.swing.JButton" name="jButton10">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 15.png"/>
+          <Image iconType="3" name="/images/Group 15.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -247,7 +247,7 @@
     <Component class="javax.swing.JButton" name="RenameJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 4.png"/>
+          <Image iconType="3" name="/images/Group 4.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -259,7 +259,7 @@
     <Component class="javax.swing.JButton" name="DeleteJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 3.png"/>
+          <Image iconType="3" name="/images/Group 3.png"/>
         </Property>
       </Properties>
       <Events>
@@ -274,7 +274,7 @@
     <Component class="javax.swing.JButton" name="PasteJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 2.png"/>
+          <Image iconType="3" name="/images/Group 2.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -286,7 +286,7 @@
     <Component class="javax.swing.JButton" name="CopyJButton">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 1.png"/>
+          <Image iconType="3" name="/images/Group 1.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -298,7 +298,7 @@
     <Component class="javax.swing.JButton" name="jButton15">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/Group 5.png"/>
+          <Image iconType="3" name="/images/Group 5.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -310,7 +310,7 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/fileexplorer/triangle.png"/>
+          <Image iconType="3" name="/images/triangle.png"/>
         </Property>
       </Properties>
       <Constraints>

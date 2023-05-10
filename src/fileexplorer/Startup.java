@@ -11,24 +11,22 @@ package fileexplorer;
  *
  * @author muham
  */
-import java.util.LinkedList;
 import java.io.File;
+
 public class Startup {
 
     /**
-     * @param args the command line arguments
      */
 //    LinkedList<File> files=new LinkedList<File>;
-    
-    public Startup(){
-    File [] SystemDrives = File.listRoots();
-    for (File drive: SystemDrives){
-        System.out.println("Path:"+drive.getPath().length());
+    public Startup() {
+        File[] SystemDrives = File.listRoots();
+        for (File drive : SystemDrives) {
+            System.out.println("Path:" + drive.getPath().length());
+        }
     }
-    }
+
     public static void main(String args[]) {
-        // TODO code application logic here
-         Startup std=new Startup();
-         System.out.println("Startup");
+// TODO code application logic here
+        System.out.println("Startup");
     }
 }

@@ -11,33 +11,38 @@ package fileexplorer;
  *
  * @author muham
  */
-import java.util.LinkedList;
 import java.io.File;
 import java.awt.Desktop;
 import java.io.IOException;
+
 public class FileFunction {
 
     /**
      * @param args the command line arguments
      */
 //    LinkedList<File> files=new LinkedList<File>;
-    Desktop desk=Desktop.getDesktop();
-    public FileFunction(){
-    File [] SystemDrives = File.listRoots();
-    for (File drive: SystemDrives){
-        System.out.println("Path:"+drive.getPath().length());
-    }}
-    public void openFile(File file) throws IOException{
-        
+    Desktop desk = Desktop.getDesktop();
+
+    public FileFunction() {
+        File[] SystemDrives = File.listRoots();
+        for (File drive : SystemDrives) {
+            System.out.println("Path:" + drive.getPath().length());
+        }
     }
-    public File [] getDrives(){
-        File [] SystemDrives = File.listRoots();
+
+    public void openFile(File file) throws IOException {
+
+    }
+
+    public File[] getDrives() {
+        File[] SystemDrives = File.listRoots();
         return SystemDrives;
     }
+
     public static void main(String args[]) {
         // TODO code application logic here
-         FileFunction start=new FileFunction();
-         start.getDrives();
-         
+        FileFunction start = new FileFunction();
+        start.getDrives();
+
     }
 }

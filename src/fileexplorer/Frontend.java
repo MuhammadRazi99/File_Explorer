@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package fileexplorer;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JScrollPane;
+
 /**
  *
  * @author jawad
@@ -27,11 +29,11 @@ public class Frontend extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    FileFunction fileFunc=new FileFunction();
+    FileFunction fileFunc = new FileFunction();
+
     public Frontend() {
         initComponents();
     }
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,10 +71,10 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/FILE EXPLORER.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/FILE EXPLORER.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 40));
 
-        MusicJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 14.png"))); // NOI18N
+        MusicJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 10.png"))); // NOI18N
         MusicJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MusicJButtonActionPerformed(evt);
@@ -80,7 +82,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(MusicJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 160, 30));
 
-        PicturesJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 10.png"))); // NOI18N
+        PicturesJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 10.png"))); // NOI18N
         PicturesJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PicturesJButtonActionPerformed(evt);
@@ -88,7 +90,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(PicturesJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 160, 30));
 
-        DocumentJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 9.png"))); // NOI18N
+        DocumentJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 9.png"))); // NOI18N
         DocumentJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DocumentJButtonActionPerformed(evt);
@@ -96,7 +98,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(DocumentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 160, 30));
 
-        DownloadJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 8.png"))); // NOI18N
+        DownloadJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 8.png"))); // NOI18N
         DownloadJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DownloadJButtonActionPerformed(evt);
@@ -108,12 +110,12 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(SearchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 69, 190, 30));
 
         DisplayPanel.setBackground(new java.awt.Color(0, 102, 102));
-        DisplayPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(8, 8, 8, 8, new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Rectangle 10.png")))); // NOI18N
+        DisplayPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(8, 8, 8, 8, new javax.swing.ImageIcon(getClass().getResource("/images/Rectangle 10.png")))); // NOI18N
         DisplayPanel.add(BackPanel);
 
         getContentPane().add(DisplayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 880, 450));
 
-        DesktopJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 7.png"))); // NOI18N
+        DesktopJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 7.png"))); // NOI18N
         DesktopJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DesktopJButtonActionPerformed(evt);
@@ -121,7 +123,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(DesktopJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 160, 30));
 
-        ThisPCJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 6.png"))); // NOI18N
+        ThisPCJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 6.png"))); // NOI18N
         ThisPCJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ThisPCJButtonActionPerformed(evt);
@@ -129,7 +131,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(ThisPCJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 160, 30));
 
-        VideosJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 12.png"))); // NOI18N
+        VideosJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 12.png"))); // NOI18N
         VideosJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VideosJButtonActionPerformed(evt);
@@ -137,7 +139,7 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(VideosJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 160, 30));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 12.png"))); // NOI18N
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 12.png"))); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -150,16 +152,16 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(URLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 880, 30));
 
         SearchJButton.setBackground(new java.awt.Color(0, 0, 0));
-        SearchJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Vector.png"))); // NOI18N
+        SearchJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
         getContentPane().add(SearchJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 31, 29));
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 15.png"))); // NOI18N
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 15.png"))); // NOI18N
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 61, 45));
 
-        RenameJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 4.png"))); // NOI18N
+        RenameJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 4.png"))); // NOI18N
         getContentPane().add(RenameJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 61, 45));
 
-        DeleteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 3.png"))); // NOI18N
+        DeleteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 3.png"))); // NOI18N
         DeleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteJButtonActionPerformed(evt);
@@ -167,16 +169,16 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 61, 45));
 
-        PasteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 2.png"))); // NOI18N
+        PasteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 2.png"))); // NOI18N
         getContentPane().add(PasteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 61, 45));
 
-        CopyJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 1.png"))); // NOI18N
+        CopyJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 1.png"))); // NOI18N
         getContentPane().add(CopyJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 61, 45));
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/Group 5.png"))); // NOI18N
+        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 5.png"))); // NOI18N
         getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 61, 45));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fileexplorer/triangle.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangle.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1308, 800));
 
         pack();
@@ -219,47 +221,49 @@ public class Frontend extends javax.swing.JFrame {
     }//GEN-LAST:event_DeleteJButtonActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param listFiles
      */
-    
-    public void startAgain(File []listFiles){
-        if(DisplayPanel.isAncestorOf(BackPanel))
-        {DisplayPanel.remove(BackPanel);}
-        JScrollPane BackPanel=new JScrollPane();
-        Dimension dim=DisplayPanel.getSize();
-        BackPanel.setPreferredSize(dim);
-        for(File file:listFiles){
-            System.out.println("File:"+file.getPath());
+    public void startAgain(File[] listFiles) {
+//        if (DisplayPanel.isAncestorOf(BackPanel)) {
+//            DisplayPanel.remove(BackPanel);
+//        }
+//        JScrollPane backPanel = new JScrollPane();
+//        Dimension dim = DisplayPanel.getSize();
+//        backPanel.setPreferredSize(dim);
+        DisplayPanel.removeAll();
+        DisplayPanel.revalidate();
+        DisplayPanel.repaint();
+        for (File file : listFiles) {
+            System.out.println("File:" + file.getPath());
             makeJButton(file);
-            }
-        DisplayPanel.add(BackPanel);
-        
-    }
-    public void makeJButton(File file){
-        String text;
-        if(file.getName()!="")
-        {text=file.getName();}
-        else
-        {text=file.getPath();}
-        JButton btn=new JButton();
-        btn.setText(text);
-        btn.setPreferredSize(new Dimension(100,30));
-        btn.addActionListener(new ActionListener(){
-        public void actionPerformed(ActionEvent e){
-            if(!(file.isDirectory())){   
-            try 
-            {Desktop.getDesktop().open(file);} 
-            catch (IOException ex) 
-            {Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);}
-            }
-            else
-            {
-            startAgain(file.listFiles());
-            }
         }
+//        DisplayPanel.add(backPanel);
+    }
+
+    public void makeJButton(File file) {
+        String text;
+        if (!"".equals(file.getName())) {
+            text = file.getName();
+        } else {
+            text = file.getPath();
+        }
+        JButton btn = new JButton();
+        btn.setText(text);
+        btn.setPreferredSize(new Dimension(100, 30));
+        btn.addActionListener((ActionEvent e) -> {
+            if (!(file.isDirectory())) {
+                try {
+                    Desktop.getDesktop().open(file);
+                } catch (IOException ex) {
+                    Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            } else {
+                startAgain(file.listFiles());
+            }
         });
         DisplayPanel.add(btn);
     }
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -286,11 +290,11 @@ public class Frontend extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable(){
-            
+        java.awt.EventQueue.invokeLater(new Runnable() {
+
             @Override
             public void run() {
-                Frontend front=new Frontend();
+                Frontend front = new Frontend();
                 front.startAgain(front.fileFunc.getDrives());
                 front.setVisible(true);
             }
