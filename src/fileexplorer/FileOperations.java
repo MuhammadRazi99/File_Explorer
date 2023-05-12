@@ -4,6 +4,7 @@
  */
 package fileexplorer;
 
+import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,7 +20,11 @@ import java.util.logging.Logger;
  * @author Ahmed
  */
 public class FileOperations {
-
+    
+    Desktop desk = Desktop.getDesktop();
+    String userName=System.getProperty("user.name");
+    String userDir=System.getenv("SystemDrive");
+    
     public void copyFile(String src, String des) {
         String dest = des + src.substring(src.lastIndexOf("\\"));
         if (Files.isDirectory(Paths.get(src))) {
@@ -97,4 +102,27 @@ public class FileOperations {
             Logger.getLogger(FileOperations.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
+    public File[] getDrives() 
+    {return File.listRoots();}
+
+    public File getDesktop()
+    {return new File(userDir+"\\Users\\"+userName+"\\Desktop");} 
+    
+    public File getDocument()
+    {return new File(userDir+"\\Users\\"+userName+"\\Document");}
+    
+    public File getDownload()
+    {return new File(userDir+"\\Users\\"+userName+"\\Download");}
+    
+    public File getPicture()
+    {return new File(userDir+"\\Users\\"+userName+"\\Pictures");}
+    
+    public File getVideo()
+    {return new File(userDir+"\\Users\\"+userName+"\\Videos");}
+    
+    public File getMusic()
+    {return new File(userDir+"\\Users\\"+userName+"\\Music");}
+    
 }

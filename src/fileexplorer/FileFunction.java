@@ -14,6 +14,7 @@ package fileexplorer;
 import java.io.File;
 import java.awt.Desktop;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class FileFunction {
 
@@ -51,19 +52,17 @@ public class FileFunction {
     public File getMusic(){
         return new File(userDir+"\\Users\\"+userName+"\\Music");
     }
-    public File [] searchFunction(){
-        
-    }
+//    public File [] searchFunction(){
+//        
+//    }
     
-    public File[] getDrives() {
-        File[] SystemDrives = File.listRoots();
-        return SystemDrives;
-    }
+    public File[] getDrives() 
+    {return File.listRoots();}
 
     public static void main(String args[]){
         // TODO code application logic here
         FileFunction start = new FileFunction();
-        start.getDrives();
+        System.out.println(Arrays.toString(start.getDrives()));
         
         
     }
