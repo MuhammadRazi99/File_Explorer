@@ -22,7 +22,9 @@ public class FileFunction {
      */
 //    LinkedList<File> files=new LinkedList<File>;
     Desktop desk = Desktop.getDesktop();
-
+    String userName=System.getProperty("user.name");
+    String userDir=System.getenv("SystemDrive");
+    
     public FileFunction() {
         File[] SystemDrives = File.listRoots();
         for (File drive : SystemDrives) {
@@ -30,19 +32,39 @@ public class FileFunction {
         }
     }
 
-    public void openFile(File file) throws IOException {
-
+    
+    public File getDesktop(){
+        return new File(userDir+"\\Users\\"+userName+"\\Desktop");
+    } 
+    public File getDocument(){
+        return new File(userDir+"\\Users\\"+userName+"\\Document");
     }
-
+    public File getDownload(){
+        return new File(userDir+"\\Users\\"+userName+"\\Download");
+    }
+    public File getPicture(){
+        return new File(userDir+"\\Users\\"+userName+"\\Pictures");
+    }
+    public File getVideo(){
+        return new File(userDir+"\\Users\\"+userName+"\\Videos");
+    }
+    public File getMusic(){
+        return new File(userDir+"\\Users\\"+userName+"\\Music");
+    }
+    public File [] searchFunction(){
+        
+    }
+    
     public File[] getDrives() {
         File[] SystemDrives = File.listRoots();
         return SystemDrives;
     }
 
-    public static void main(String args[]) {
+    public static void main(String args[]){
         // TODO code application logic here
         FileFunction start = new FileFunction();
         start.getDrives();
-
+        
+        
     }
 }
