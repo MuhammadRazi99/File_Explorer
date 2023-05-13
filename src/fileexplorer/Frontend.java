@@ -26,6 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,7 +37,10 @@ public class Frontend extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    FileOperations FileOper = new FileOperations();
+    private final FileOperations FileOper = new FileOperations();
+    private String oper = new String();
+    private String path = new String();
+    private String source = new String();
 
     public Frontend() {
         initComponents();
@@ -64,18 +68,19 @@ public class Frontend extends javax.swing.JFrame {
         VideosJButton = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         URLTextField = new javax.swing.JTextField();
-        SearchJButton = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        BackjButton = new javax.swing.JButton();
         RenameJButton = new javax.swing.JButton();
         DeleteJButton = new javax.swing.JButton();
         PasteJButton = new javax.swing.JButton();
         CopyJButton = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        NewJButton = new javax.swing.JButton();
+        BackjButton = new javax.swing.JButton();
+        MovejButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         BackJButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1200, 700));
+        setPreferredSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -115,13 +120,13 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DownloadJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, 30));
 
         SearchTextField.setBackground(new java.awt.Color(153, 153, 0));
-        getContentPane().add(SearchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 69, 190, 30));
+        getContentPane().add(SearchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 60, 180, 40));
 
         DisplayPanel.setBackground(new java.awt.Color(0, 102, 102));
         DisplayPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(8, 8, 8, 8, new javax.swing.ImageIcon(getClass().getResource("/images/Rectangle 10.png")))); // NOI18N
         DisplayPanel.add(BackPanel);
 
-        getContentPane().add(DisplayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 880, 450));
+        getContentPane().add(DisplayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 1000, 450));
 
         DesktopJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 7.png"))); // NOI18N
         DesktopJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -155,47 +160,85 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 160, 30));
 
+        URLTextField.setEditable(false);
         URLTextField.setBackground(new java.awt.Color(153, 153, 0));
         URLTextField.setForeground(new java.awt.Color(153, 153, 255));
-        getContentPane().add(URLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 880, 30));
-
-        SearchJButton.setBackground(new java.awt.Color(0, 0, 0));
-        SearchJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
-        getContentPane().add(SearchJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 70, 31, 29));
+        getContentPane().add(URLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 1000, 30));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 15.png"))); // NOI18N
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, 61, 45));
-
-        BackjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/go-back.png"))); // NOI18N
-        BackjButton.setText("Back");
-        BackjButton.setName(""); // NOI18N
-        BackjButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton10.setToolTipText("View");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackjButtonActionPerformed(evt);
+                jButton10ActionPerformed(evt);
             }
         });
-        getContentPane().add(BackjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 60, 40));
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 61, 45));
 
         RenameJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 4.png"))); // NOI18N
-        getContentPane().add(RenameJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 61, 45));
+        RenameJButton.setToolTipText("Rename");
+        RenameJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RenameJButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(RenameJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 61, 45));
 
         DeleteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 3.png"))); // NOI18N
+        DeleteJButton.setToolTipText("Delete");
         DeleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteJButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 61, 45));
+        getContentPane().add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 61, 45));
 
         PasteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 2.png"))); // NOI18N
-        getContentPane().add(PasteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, 61, 45));
+        PasteJButton.setToolTipText("Paste");
+        PasteJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasteJButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(PasteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 61, 45));
 
         CopyJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 1.png"))); // NOI18N
-        CopyJButton.setToolTipText("");
-        getContentPane().add(CopyJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 61, 45));
+        CopyJButton.setToolTipText("Copy");
+        CopyJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CopyJButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(CopyJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 61, 45));
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 5.png"))); // NOI18N
-        getContentPane().add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 60, 61, 45));
+        NewJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 5.png"))); // NOI18N
+        NewJButton.setToolTipText("New");
+        NewJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NewJButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(NewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 61, 45));
+
+        BackjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 18.png"))); // NOI18N
+        BackjButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackjButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(BackjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 95, 39));
+
+        MovejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 17.png"))); // NOI18N
+        MovejButton.setToolTipText("Move");
+        MovejButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MovejButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(MovejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 61, 45));
+
+        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 40, 40));
 
         BackJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangle.png"))); // NOI18N
         getContentPane().add(BackJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1307, 800));
@@ -206,26 +249,31 @@ public class Frontend extends javax.swing.JFrame {
     private void MusicJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getMusic().listFiles());
+        URLTextField.setText("Music");
     }//GEN-LAST:event_MusicJButtonActionPerformed
 
     private void PicturesJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PicturesJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getPicture().listFiles());
+        URLTextField.setText("Pictures");
     }//GEN-LAST:event_PicturesJButtonActionPerformed
 
     private void DocumentJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getDocument().listFiles());
+        URLTextField.setText("Documents");
     }//GEN-LAST:event_DocumentJButtonActionPerformed
 
     private void DownloadJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DownloadJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getDownload().listFiles());
+        URLTextField.setText("Downloads");
     }//GEN-LAST:event_DownloadJButtonActionPerformed
 
     private void DesktopJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesktopJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getDesktop().listFiles());
+        URLTextField.setText("Desktop");
     }//GEN-LAST:event_DesktopJButtonActionPerformed
 
     private void ThisPCJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThisPCJButtonActionPerformed
@@ -236,6 +284,7 @@ public class Frontend extends javax.swing.JFrame {
     private void VideosJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VideosJButtonActionPerformed
         // TODO add your handling code here:
         startAgain(FileOper.getVideo().listFiles());
+        URLTextField.setText("Videos");
     }//GEN-LAST:event_VideosJButtonActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -244,73 +293,156 @@ public class Frontend extends javax.swing.JFrame {
 
     private void DeleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteJButtonActionPerformed
         // TODO add your handling code here:
+        FileOper.Delete(path);
+        String src;
+        if (new File(path).isDirectory()) {
+            src = path;
+        } else {
+            src = new File(path).getParent();
+        }
+        startAgain(new File(src).listFiles());
     }//GEN-LAST:event_DeleteJButtonActionPerformed
+
+    private void CopyJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CopyJButtonActionPerformed
+        // TODO add your handling code here:
+        oper = "copy";
+        source = path;
+    }//GEN-LAST:event_CopyJButtonActionPerformed
+
+    private void PasteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasteJButtonActionPerformed
+        // TODO add your handling code here:
+        if (oper.equals("copy")) {
+            FileOper.Copy(source, path);
+        } else if (oper.equals("move")) {
+            FileOper.Move(source, path);
+        }
+        startAgain(new File(path).listFiles());
+    }//GEN-LAST:event_PasteJButtonActionPerformed
+
+    private void RenameJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RenameJButtonActionPerformed
+        // TODO add your handling code here:
+        String ext = null;
+        String oldName = new File(path).getName();
+        if (oldName.lastIndexOf(".") != -1) {
+            ext = oldName.substring(oldName.lastIndexOf("."));
+            oldName = oldName.substring(0, oldName.lastIndexOf("."));
+        }
+        String newName = JOptionPane.showInputDialog("New Name:", oldName);
+        if (newName != null) {
+            if (ext != null) {
+                FileOper.Rename(path, newName + ext);
+            } else {
+                FileOper.Rename(path, newName);
+            }
+        }
+        String src;
+        if (new File(path).isDirectory()) {
+            src = path;
+        } else {
+            src = new File(path).getParent();
+        }
+        startAgain(new File(src).listFiles());
+    }//GEN-LAST:event_RenameJButtonActionPerformed
+
+    private void NewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewJButtonActionPerformed
+        // TODO add your handling code here:
+        String name = JOptionPane.showInputDialog("File Name:");
+        if (name != null) {
+            FileOper.New(path, name);
+        }
+        startAgain(new File(path).listFiles());
+    }//GEN-LAST:event_NewJButtonActionPerformed
 
     private void BackjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackjButtonActionPerformed
         // TODO add your handling code here:
+        path = new File(path).getParent();
+        if (path != null) {
+            startAgain(new File(path).listFiles());
+        } else {
+            start(FileOper.getDrives());
+        }
     }//GEN-LAST:event_BackjButtonActionPerformed
+
+    private void MovejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovejButtonActionPerformed
+        // TODO add your handling code here:
+        oper = "move";
+        source = path;
+    }//GEN-LAST:event_MovejButtonActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param listFiles
-     * @param hidden
      */
     public void startAgain(File[] listFiles) {
         DisplayPanel.removeAll();
         DisplayPanel.revalidate();
         DisplayPanel.repaint();
+        URLTextField.setText(path);
 //        boolean hidden,system=true;
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
-            if(!(file.isHidden()))
-            {makeJLabel(file);}   
+            if (!(file.isHidden())) {
+                makeJLabel(file);
+            }
         }
     }
+
     public void start(File[] listFiles) {
         DisplayPanel.removeAll();
         DisplayPanel.revalidate();
         DisplayPanel.repaint();
+        URLTextField.setText("This PC");
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
-            makeJLabel(file);   
+            makeJLabel(file);
         }
     }
+
     public void makeJLabel(File file) {
         String text;
-        
-        if (!"".equals(file.getName())) 
-        {text = file.getName();}
-        else 
-        {text = file.getPath();}
-        
-        JLabel label = new JLabel();
+
+        if (!"".equals(file.getName())) {
+            text = file.getName();
+        } else {
+            text = file.getPath();
+        }
+
+        JButton label = new JButton();
         label.setText(text);
-        label.setBorder(BorderFactory.createEmptyBorder(4,6,6,4));
+        label.setBorder(BorderFactory.createEmptyBorder(4, 6, 6, 4));
         label.setForeground(Color.green);
         label.setBackground(Color.red);
 
 //        label.setBorder(BorderFactory.createLineBorder(Color.GREEN , 3));
 //        label.setPreferredSize(new Dimension(100, 30));
-
 //        label.addKeyListener(new KeyListener(){
 //            @override
 //            public void KeyPressed(KeyEvent evt){
 //                if(evt.isActionKey())
 //            }
 //        });
-
-
-        label.addMouseListener(new MouseAdapter(){
-          @Override
-          public void mouseClicked(MouseEvent e){
-            if(e.getClickCount()==2){
-                if (!(file.isDirectory())) {
-                    try {Desktop.getDesktop().open(file);}
-                    catch (IOException ex) 
-                    {Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);}
-                } 
-                else {startAgain(file.listFiles());}      
-              }
-        }});       
+        label.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                if (e.getClickCount() == 1) {
+                    path = file.getAbsolutePath();
+                    System.out.println("Path:" + path);
+                } else if (e.getClickCount() == 2) {
+                    if (!(file.isDirectory())) {
+                        try {
+                            Desktop.getDesktop().open(file);
+                        } catch (IOException ex) {
+                            Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    } else {
+                        startAgain(file.listFiles());
+                    }
+                }
+            }
+        });
         DisplayPanel.add(label);
     }
 
@@ -340,14 +472,10 @@ public class Frontend extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-
-            @Override
-            public void run() {
-                Frontend front = new Frontend();
-                front.start(front.FileOper.getDrives());
-                front.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            Frontend front = new Frontend();
+            front.start(front.FileOper.getDrives());
+            front.setVisible(true);
         });
     }
 
@@ -361,17 +489,18 @@ public class Frontend extends javax.swing.JFrame {
     private javax.swing.JPanel DisplayPanel;
     private javax.swing.JButton DocumentJButton;
     private javax.swing.JButton DownloadJButton;
+    private javax.swing.JButton MovejButton;
     private javax.swing.JButton MusicJButton;
+    private javax.swing.JButton NewJButton;
     private javax.swing.JButton PasteJButton;
     private javax.swing.JButton PicturesJButton;
     private javax.swing.JButton RenameJButton;
-    private javax.swing.JButton SearchJButton;
     private javax.swing.JTextField SearchTextField;
     private javax.swing.JButton ThisPCJButton;
     private javax.swing.JTextField URLTextField;
     private javax.swing.JButton VideosJButton;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
