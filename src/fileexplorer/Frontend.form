@@ -48,6 +48,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 14.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="54"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MusicJButtonActionPerformed"/>
@@ -63,6 +64,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 10.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="53"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PicturesJButtonActionPerformed"/>
@@ -78,6 +80,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 9.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="52"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentJButtonActionPerformed"/>
@@ -93,6 +96,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 8.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="51"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DownloadJButtonActionPerformed"/>
@@ -147,6 +151,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 7.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="50"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DesktopJButtonActionPerformed"/>
@@ -162,6 +167,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 6.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="49"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ThisPCJButtonActionPerformed"/>
@@ -177,6 +183,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 12.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="55"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="VideosJButtonActionPerformed"/>
@@ -223,6 +230,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 15.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="77"/>
         <Property name="toolTipText" type="java.lang.String" value="View"/>
       </Properties>
       <Events>
@@ -239,6 +247,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 4.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="82"/>
         <Property name="toolTipText" type="java.lang.String" value="Rename"/>
       </Properties>
       <Events>
@@ -255,6 +264,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 3.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="68"/>
         <Property name="toolTipText" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
@@ -271,6 +281,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 2.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="86"/>
         <Property name="toolTipText" type="java.lang.String" value="Paste"/>
       </Properties>
       <Events>
@@ -287,6 +298,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 1.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="67"/>
         <Property name="toolTipText" type="java.lang.String" value="Copy"/>
       </Properties>
       <Events>
@@ -303,6 +315,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 5.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="78"/>
         <Property name="toolTipText" type="java.lang.String" value="New"/>
       </Properties>
       <Events>
@@ -319,6 +332,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 18.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="66"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BackjButtonActionPerformed"/>
@@ -334,6 +348,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Group 17.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="88"/>
         <Property name="toolTipText" type="java.lang.String" value="Move"/>
       </Properties>
       <Events>
@@ -353,7 +368,11 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/Vector.png"/>
         </Property>
+        <Property name="mnemonic" type="int" value="83"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="970" y="60" width="40" height="40"/>

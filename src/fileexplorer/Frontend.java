@@ -88,6 +88,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, 40));
 
         MusicJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 14.png"))); // NOI18N
+        MusicJButton.setMnemonic('6');
         MusicJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MusicJButtonActionPerformed(evt);
@@ -96,6 +97,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(MusicJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 500, 160, 30));
 
         PicturesJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 10.png"))); // NOI18N
+        PicturesJButton.setMnemonic('5');
         PicturesJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 PicturesJButtonActionPerformed(evt);
@@ -104,6 +106,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(PicturesJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 430, 160, 30));
 
         DocumentJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 9.png"))); // NOI18N
+        DocumentJButton.setMnemonic('4');
         DocumentJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DocumentJButtonActionPerformed(evt);
@@ -112,6 +115,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DocumentJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 160, 30));
 
         DownloadJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 8.png"))); // NOI18N
+        DownloadJButton.setMnemonic('3');
         DownloadJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DownloadJButtonActionPerformed(evt);
@@ -129,6 +133,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DisplayPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 1000, 450));
 
         DesktopJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 7.png"))); // NOI18N
+        DesktopJButton.setMnemonic('2');
         DesktopJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DesktopJButtonActionPerformed(evt);
@@ -137,6 +142,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DesktopJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 160, 30));
 
         ThisPCJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 6.png"))); // NOI18N
+        ThisPCJButton.setMnemonic('1');
         ThisPCJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ThisPCJButtonActionPerformed(evt);
@@ -145,6 +151,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(ThisPCJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 160, 30));
 
         VideosJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 12.png"))); // NOI18N
+        VideosJButton.setMnemonic('7');
         VideosJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 VideosJButtonActionPerformed(evt);
@@ -166,6 +173,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(URLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 1000, 30));
 
         jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 15.png"))); // NOI18N
+        jButton10.setMnemonic('M');
         jButton10.setToolTipText("View");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,6 +183,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 61, 45));
 
         RenameJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 4.png"))); // NOI18N
+        RenameJButton.setMnemonic('R');
         RenameJButton.setToolTipText("Rename");
         RenameJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,6 +193,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(RenameJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 61, 45));
 
         DeleteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 3.png"))); // NOI18N
+        DeleteJButton.setMnemonic('D');
         DeleteJButton.setToolTipText("Delete");
         DeleteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +203,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DeleteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 60, 61, 45));
 
         PasteJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 2.png"))); // NOI18N
+        PasteJButton.setMnemonic('V');
         PasteJButton.setToolTipText("Paste");
         PasteJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -202,6 +213,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(PasteJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 61, 45));
 
         CopyJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 1.png"))); // NOI18N
+        CopyJButton.setMnemonic('C');
         CopyJButton.setToolTipText("Copy");
         CopyJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -211,6 +223,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(CopyJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, 61, 45));
 
         NewJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 5.png"))); // NOI18N
+        NewJButton.setMnemonic('N');
         NewJButton.setToolTipText("New");
         NewJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -220,6 +233,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(NewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 61, 45));
 
         BackjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 18.png"))); // NOI18N
+        BackjButton.setMnemonic('B');
         BackjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BackjButtonActionPerformed(evt);
@@ -228,6 +242,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(BackjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 95, 39));
 
         MovejButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 17.png"))); // NOI18N
+        MovejButton.setMnemonic('X');
         MovejButton.setToolTipText("Move");
         MovejButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +253,12 @@ public class Frontend extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(0, 0, 0));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
+        jButton2.setMnemonic('S');
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 40, 40));
 
         BackJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangle.png"))); // NOI18N
@@ -248,42 +269,49 @@ public class Frontend extends javax.swing.JFrame {
 
     private void MusicJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getMusic().listFiles());
+        path = FileOper.getMusic().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Music");
     }//GEN-LAST:event_MusicJButtonActionPerformed
 
     private void PicturesJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PicturesJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getPicture().listFiles());
+        path = FileOper.getPicture().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Pictures");
     }//GEN-LAST:event_PicturesJButtonActionPerformed
 
     private void DocumentJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getDocument().listFiles());
+        path = FileOper.getDocument().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Documents");
     }//GEN-LAST:event_DocumentJButtonActionPerformed
 
     private void DownloadJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DownloadJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getDownload().listFiles());
+        path = FileOper.getDownload().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Downloads");
     }//GEN-LAST:event_DownloadJButtonActionPerformed
 
     private void DesktopJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesktopJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getDesktop().listFiles());
+        path = FileOper.getDesktop().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Desktop");
     }//GEN-LAST:event_DesktopJButtonActionPerformed
 
     private void ThisPCJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThisPCJButtonActionPerformed
         // TODO add your handling code here:
+        path = "This PC";
         start(FileOper.getDrives());
     }//GEN-LAST:event_ThisPCJButtonActionPerformed
 
     private void VideosJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VideosJButtonActionPerformed
         // TODO add your handling code here:
-        startAgain(FileOper.getVideo().listFiles());
+        path = FileOper.getVideo().toString();
+        startAgain(new File(path).listFiles());
         URLTextField.setText("Videos");
     }//GEN-LAST:event_VideosJButtonActionPerformed
 
@@ -359,6 +387,7 @@ public class Frontend extends javax.swing.JFrame {
         if (path != null) {
             startAgain(new File(path).listFiles());
         } else {
+            path = "This PC";
             start(FileOper.getDrives());
         }
     }//GEN-LAST:event_BackjButtonActionPerformed
@@ -372,6 +401,17 @@ public class Frontend extends javax.swing.JFrame {
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        String src;
+        if (new File(path).isDirectory()) {
+            src = path;
+        } else {
+            src = new File(path).getParent();
+        }
+        FileOper.search(new File(src), SearchTextField.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param listFiles
@@ -446,38 +486,38 @@ public class Frontend extends javax.swing.JFrame {
         DisplayPanel.add(label);
     }
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            Frontend front = new Frontend();
-            front.start(front.FileOper.getDrives());
-            front.setVisible(true);
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(() -> {
+//            Frontend front = new Frontend();
+//            front.start(front.FileOper.getDrives());
+//            front.setVisible(true);
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackJButton;

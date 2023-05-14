@@ -4,7 +4,6 @@
  */
 package fileexplorer;
 
-//import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +19,6 @@ import javax.swing.JOptionPane;
  */
 public class FileOperations {
 
-//    Desktop desk = Desktop.getDesktop();
     String userName = System.getProperty("user.name");
     String userDir = System.getenv("SystemDrive");
 
@@ -99,6 +97,21 @@ public class FileOperations {
             }
         } catch (IOException ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }
+
+    public void search(File file, String name) {
+        for (File temp : file.listFiles()) {
+            if (temp.isDirectory()) {
+                if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
+                    System.out.println("Found: " + file.getAbsolutePath());
+                }
+                search(temp, name);
+            } else {
+                if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
+                    System.out.println("Found: " + file.getAbsolutePath());
+                }
+            }
         }
     }
 
