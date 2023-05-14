@@ -76,7 +76,7 @@ public class Frontend extends javax.swing.JFrame {
         NewJButton = new javax.swing.JButton();
         BackjButton = new javax.swing.JButton();
         MovejButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        SearchjButton = new javax.swing.JButton();
         BackJButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,6 +124,11 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DownloadJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, 30));
 
         SearchTextField.setBackground(new java.awt.Color(153, 153, 0));
+        SearchTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchTextFieldActionPerformed(evt);
+            }
+        });
         getContentPane().add(SearchTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 60, 180, 40));
 
         DisplayPanel.setBackground(new java.awt.Color(0, 102, 102));
@@ -251,15 +256,15 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(MovejButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 61, 45));
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
-        jButton2.setMnemonic('S');
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        SearchjButton.setBackground(new java.awt.Color(0, 0, 0));
+        SearchjButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Vector.png"))); // NOI18N
+        SearchjButton.setMnemonic('S');
+        SearchjButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                SearchjButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 40, 40));
+        getContentPane().add(SearchjButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 60, 40, 40));
 
         BackJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/triangle.png"))); // NOI18N
         getContentPane().add(BackJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1307, 800));
@@ -402,7 +407,7 @@ public class Frontend extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void SearchjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchjButtonActionPerformed
         // TODO add your handling code here:
         String src;
         if (new File(path).isDirectory()) {
@@ -410,8 +415,19 @@ public class Frontend extends javax.swing.JFrame {
         } else {
             src = new File(path).getParent();
         }
-        FileOper.search(new File(src), SearchTextField.getText());
-    }//GEN-LAST:event_jButton2ActionPerformed
+        FileOper.Search(new File(src), SearchTextField.getText());
+    }//GEN-LAST:event_SearchjButtonActionPerformed
+
+    private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
+        // TODO add your handling code here:
+        String src;
+        if (new File(path).isDirectory()) {
+            src = path;
+        } else {
+            src = new File(path).getParent();
+        }
+        FileOper.Search(new File(src), SearchTextField.getText());
+    }//GEN-LAST:event_SearchTextFieldActionPerformed
 
     /**
      * @param listFiles
@@ -536,11 +552,11 @@ public class Frontend extends javax.swing.JFrame {
     private javax.swing.JButton PicturesJButton;
     private javax.swing.JButton RenameJButton;
     private javax.swing.JTextField SearchTextField;
+    private javax.swing.JButton SearchjButton;
     private javax.swing.JButton ThisPCJButton;
     private javax.swing.JTextField URLTextField;
     private javax.swing.JButton VideosJButton;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

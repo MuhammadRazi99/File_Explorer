@@ -100,16 +100,18 @@ public class FileOperations {
         }
     }
 
-    public void search(File file, String name) {
-        for (File temp : file.listFiles()) {
-            if (temp.isDirectory()) {
-                if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
-                    System.out.println("Found: " + file.getAbsolutePath());
-                }
-                search(temp, name);
-            } else {
-                if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
-                    System.out.println("Found: " + file.getAbsolutePath());
+    public void Search(File file, String name) {
+        if (file.listFiles() != null) {
+            for (File temp : file.listFiles()) {
+                if (temp.isDirectory()) {
+                    if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
+                        System.out.println("Found:" + file.getAbsolutePath() + "\\" + temp.getName());
+                    }
+                    Search(temp, name);
+                } else {
+                    if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
+                        System.out.println("Found:" + file.getAbsolutePath() + "\\" + temp.getName());
+                    }
                 }
             }
         }
