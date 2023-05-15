@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package fileexplorer;
+package explorer;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Ahmed
  */
-public class FileOperations {
+public class Backend {
 
     String userName = System.getProperty("user.name");
     String userDir = System.getenv("SystemDrive");
@@ -101,9 +101,9 @@ public class FileOperations {
         }
     }
 
-public ArrayList<File> Search(File file, String name) {
-        ArrayList<File> foundFiles= new ArrayList<File>();
-        ArrayList<File> tempFiles= new ArrayList<File>();
+    public ArrayList<File> Search(File file, String name) {
+        ArrayList<File> foundFiles = new ArrayList<File>();
+        ArrayList<File> tempFiles = new ArrayList<File>();
         if (file.listFiles() != null) {
             for (File temp : file.listFiles()) {
                 if (temp.isDirectory()) {
@@ -111,8 +111,8 @@ public ArrayList<File> Search(File file, String name) {
                         System.out.println("Found:" + file.getAbsolutePath() + "\\" + temp.getName());
                         foundFiles.add(temp);
                     }
-                    tempFiles=Search(temp, name);
-                    if(tempFiles!=null){
+                    tempFiles = Search(temp, name);
+                    if (tempFiles != null) {
                         foundFiles.addAll(tempFiles);
                     }
                 } else {

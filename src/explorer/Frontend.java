@@ -2,34 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package fileexplorer;
+package explorer;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Insets;
 import java.io.File;
 import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
-import java.awt.Desktop;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.io.IOException;
-import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.BorderFactory;
-import javax.swing.Icon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -40,10 +16,7 @@ public class Frontend extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
-    private final FileOperations FileOper = new FileOperations();
-    private String oper = new String();
-    private String path = new String();
-    private String source = new String();
+    private final Middleware MW = new Middleware();
 
     public Frontend() {
         initComponents();
@@ -82,6 +55,7 @@ public class Frontend extends javax.swing.JFrame {
         BackJButton = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(1307, 800));
         setPreferredSize(new java.awt.Dimension(1300, 700));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -269,129 +243,78 @@ public class Frontend extends javax.swing.JFrame {
 
     private void MusicJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MusicJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getMusic().toString();
-        startAgain(new File(path).listFiles());
+        MW.music();
         URLTextField.setText("Music");
     }//GEN-LAST:event_MusicJButtonActionPerformed
 
     private void PicturesJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PicturesJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getPicture().toString();
-        startAgain(new File(path).listFiles());
+        MW.picture();
         URLTextField.setText("Pictures");
     }//GEN-LAST:event_PicturesJButtonActionPerformed
 
     private void DocumentJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getDocument().toString();
-        startAgain(new File(path).listFiles());
+        MW.document();
         URLTextField.setText("Documents");
     }//GEN-LAST:event_DocumentJButtonActionPerformed
 
     private void DownloadJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DownloadJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getDownload().toString();
-        startAgain(new File(path).listFiles());
+        MW.download();
         URLTextField.setText("Downloads");
     }//GEN-LAST:event_DownloadJButtonActionPerformed
 
     private void DesktopJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DesktopJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getDesktop().toString();
-        startAgain(new File(path).listFiles());
+        MW.desktop();
         URLTextField.setText("Desktop");
     }//GEN-LAST:event_DesktopJButtonActionPerformed
 
     private void ThisPCJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ThisPCJButtonActionPerformed
         // TODO add your handling code here:
-        path = "This PC";
-        start(FileOper.getDrives());
+        MW.pc();
     }//GEN-LAST:event_ThisPCJButtonActionPerformed
 
     private void VideosJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VideosJButtonActionPerformed
         // TODO add your handling code here:
-        path = FileOper.getVideo().toString();
-        startAgain(new File(path).listFiles());
+        MW.video();
         URLTextField.setText("Videos");
     }//GEN-LAST:event_VideosJButtonActionPerformed
 
     private void DeleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteJButtonActionPerformed
         // TODO add your handling code here:
-        FileOper.Delete(path);
-        String src;
-        if (new File(path).isDirectory()) {
-            src = path;
-        } else {
-            src = new File(path).getParent();
-        }
-        startAgain(new File(src).listFiles());
+        MW.deleteMW();
     }//GEN-LAST:event_DeleteJButtonActionPerformed
 
     private void CopyJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CopyJButtonActionPerformed
         // TODO add your handling code here:
-        oper = "copy";
-        source = path;
+        MW.copyMW();
     }//GEN-LAST:event_CopyJButtonActionPerformed
 
     private void PasteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasteJButtonActionPerformed
         // TODO add your handling code here:
-        if (oper.equals("copy")) {
-            FileOper.Copy(source, path);
-        } else if (oper.equals("move")) {
-            FileOper.Move(source, path);
-        }
-        startAgain(new File(path).listFiles());
+        MW.pasteMW();
     }//GEN-LAST:event_PasteJButtonActionPerformed
 
     private void RenameJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RenameJButtonActionPerformed
         // TODO add your handling code here:
-        String ext = null;
-        String oldName = new File(path).getName();
-        if (oldName.lastIndexOf(".") != -1) {
-            ext = oldName.substring(oldName.lastIndexOf("."));
-            oldName = oldName.substring(0, oldName.lastIndexOf("."));
-        }
-        String newName = JOptionPane.showInputDialog("New Name:", oldName);
-        if (newName != null) {
-            if (ext != null) {
-                FileOper.Rename(path, newName + ext);
-            } else {
-                FileOper.Rename(path, newName);
-            }
-        }
-        String src;
-        if (new File(path).isDirectory()) {
-            src = path;
-        } else {
-            src = new File(path).getParent();
-        }
-        startAgain(new File(src).listFiles());
+        MW.renameMW();
     }//GEN-LAST:event_RenameJButtonActionPerformed
 
     private void NewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NewJButtonActionPerformed
         // TODO add your handling code here:
-        String name = JOptionPane.showInputDialog("File Name:");
-        if (name != null) {
-            FileOper.New(path, name);
-        }
-        startAgain(new File(path).listFiles());
+        MW.newMW();
     }//GEN-LAST:event_NewJButtonActionPerformed
 
     private void BackjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackjButtonActionPerformed
         // TODO add your handling code here:
-        path = new File(path).getParent();
-        if (path != null) {
-            startAgain(new File(path).listFiles());
-        } else {
-            path = "This PC";
-            start(FileOper.getDrives());
-        }
+        MW.backMW();
     }//GEN-LAST:event_BackjButtonActionPerformed
 
     private void MovejButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MovejButtonActionPerformed
         // TODO add your handling code here:
-        oper = "move";
-        source = path;
+        MW.moveMW();
     }//GEN-LAST:event_MovejButtonActionPerformed
 
     private void ViewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewJButtonActionPerformed
@@ -400,145 +323,44 @@ public class Frontend extends javax.swing.JFrame {
 
     private void SearchjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchjButtonActionPerformed
         // TODO add your handling code here:
-       String url=URLTextField.getText();
-        String fileName = SearchTextField.getText();
-        ArrayList<File> foundFiles=new ArrayList<File>();
-        switch(url){
-            case "This PC":
-                for(File file: FileOper.getDrives()){
-                    foundFiles.addAll(FileOper.Search(file, fileName));
-                }
-                break;
-            case "Desktop":
-                foundFiles.addAll(FileOper.Search(FileOper.getDesktop(), fileName));
-                break;
-            case "Music":
-                foundFiles.addAll(FileOper.Search(FileOper.getMusic(), fileName));
-                break;
-            case "Documents":
-                foundFiles.addAll(FileOper.Search(FileOper.getDocument(), fileName));
-                break;
-            case "Downloads":
-                foundFiles.addAll(FileOper.Search(FileOper.getDownload(), fileName));
-                break;
-            case "Videos":
-                foundFiles.addAll(FileOper.Search(FileOper.getVideo(), fileName));
-                break;
-            case "Pictures":
-                foundFiles.addAll(FileOper.Search(FileOper.getPicture(), fileName));
-                break;
-            default:
-                foundFiles.addAll(FileOper.Search(new File(url), fileName));
-        }
-        if(foundFiles.size()==0){
-            JOptionPane.showMessageDialog(null, "File has not been found.");
-        }
-        else{
-            File[] files = foundFiles.toArray(new File[foundFiles.size()]);
-            start(files);
-        }
+        MW.searchMW(URLTextField.getText(), SearchTextField.getText());
     }//GEN-LAST:event_SearchjButtonActionPerformed
 
     private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
         // TODO add your handling code here:
-        
+        MW.searchMW(URLTextField.getText(), SearchTextField.getText());
     }//GEN-LAST:event_SearchTextFieldActionPerformed
 
     /**
      * @param listFiles
      */
-    public void startAgain(File[] listFiles) {
+    public static void startAgain(File[] listFiles) {
         DisplayPanel.removeAll();
         DisplayPanel.revalidate();
         DisplayPanel.repaint();
-        URLTextField.setText(path);
-//        boolean hidden,system=true;
+        URLTextField.setText(Middleware.getPath());
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
             if (!(file.isHidden())) {
-                makeJButton(file,true);
+                makeJButton(file, true);
             }
         }
     }
 
-    public void start(File[] listFiles) {
+    public static void start(File[] listFiles) {
         DisplayPanel.removeAll();
         DisplayPanel.revalidate();
         DisplayPanel.repaint();
         URLTextField.setText("This PC");
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
-            makeJButton(file,false);
+            makeJButton(file, false);
         }
     }
 
-    public void makeJButton(File file, boolean isSearch) {
-        String text;
-        Icon icon = FileSystemView.getFileSystemView().getSystemIcon( file );
-        if (!"".equals(file.getName()) && isSearch) {
-            text = file.getName();
-        } else {
-            text = file.getPath();
-        }
-        JButton btn = new JButton(icon);
-        btn.setText(text);
-        btn.setBorder(BorderFactory.createEmptyBorder(10,8,10,8));
-        btn.setSize(40,40);
-        btn.setForeground(Color.black);
-        btn.setBackground(Color.white);
-        btn.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                if (e.getClickCount() == 1) {
-                    path = file.getAbsolutePath();
-                    System.out.println("Path:" + path);
-                } else if (e.getClickCount() == 2) {
-                    if (!(file.isDirectory())) {
-                        try {
-                            Desktop.getDesktop().open(file);
-                        } catch (IOException ex) {
-                            Logger.getLogger(Frontend.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                    } else {
-                        startAgain(file.listFiles());
-                    }
-                }
-            }
-        });
+    public static void makeJButton(File file, boolean isSearch) {
+        JButton btn = Middleware.makeButton(file, isSearch);
         DisplayPanel.add(btn);
-    }
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            Frontend front = new Frontend();
-            front.start(front.FileOper.getDrives());
-            front.setVisible(true);
-        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -548,7 +370,7 @@ public class Frontend extends javax.swing.JFrame {
     private javax.swing.JButton CopyJButton;
     private javax.swing.JButton DeleteJButton;
     private javax.swing.JButton DesktopJButton;
-    private javax.swing.JPanel DisplayPanel;
+    private static javax.swing.JPanel DisplayPanel;
     private javax.swing.JButton DocumentJButton;
     private javax.swing.JButton DownloadJButton;
     private javax.swing.JButton MovejButton;
@@ -560,7 +382,7 @@ public class Frontend extends javax.swing.JFrame {
     private javax.swing.JTextField SearchTextField;
     private javax.swing.JButton SearchjButton;
     private javax.swing.JButton ThisPCJButton;
-    private javax.swing.JTextField URLTextField;
+    private static javax.swing.JTextField URLTextField;
     private javax.swing.JButton VideosJButton;
     private javax.swing.JButton ViewJButton;
     private javax.swing.JLabel jLabel1;

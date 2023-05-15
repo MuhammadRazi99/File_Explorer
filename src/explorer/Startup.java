@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Other/File.Startup to edit this template
  */
-package fileexplorer;
+package explorer;
 
 /**
  *
@@ -14,9 +14,8 @@ public class Startup {
 
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> {
-            Frontend front = new Frontend();
-            front.start(File.listRoots());
-            front.setVisible(true);
+            new Frontend().setVisible(true);
+            Frontend.start(File.listRoots());
         });
     }
 }
