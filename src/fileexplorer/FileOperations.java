@@ -10,6 +10,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.Comparator;
 import javax.swing.JOptionPane;
 
@@ -100,21 +101,29 @@ public class FileOperations {
         }
     }
 
-    public void Search(File file, String name) {
+public ArrayList<File> Search(File file, String name) {
+        ArrayList<File> foundFiles= new ArrayList<File>();
+        ArrayList<File> tempFiles= new ArrayList<File>();
         if (file.listFiles() != null) {
             for (File temp : file.listFiles()) {
                 if (temp.isDirectory()) {
                     if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
                         System.out.println("Found:" + file.getAbsolutePath() + "\\" + temp.getName());
+                        foundFiles.add(temp);
                     }
-                    Search(temp, name);
+                    tempFiles=Search(temp, name);
+                    if(tempFiles!=null){
+                        foundFiles.addAll(tempFiles);
+                    }
                 } else {
                     if (temp.getName().toLowerCase().contains(name.toLowerCase())) {
                         System.out.println("Found:" + file.getAbsolutePath() + "\\" + temp.getName());
+                        foundFiles.add(temp);
                     }
                 }
             }
         }
+        return foundFiles;
     }
 
     public File[] getDrives() {

@@ -22,11 +22,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.BorderFactory;
+import javax.swing.Icon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileSystemView;
 
 /**
  *
@@ -66,9 +69,8 @@ public class Frontend extends javax.swing.JFrame {
         DesktopJButton = new javax.swing.JButton();
         ThisPCJButton = new javax.swing.JButton();
         VideosJButton = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         URLTextField = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
+        ViewJButton = new javax.swing.JButton();
         RenameJButton = new javax.swing.JButton();
         DeleteJButton = new javax.swing.JButton();
         PasteJButton = new javax.swing.JButton();
@@ -124,6 +126,7 @@ public class Frontend extends javax.swing.JFrame {
         getContentPane().add(DownloadJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, 160, 30));
 
         SearchTextField.setBackground(new java.awt.Color(153, 153, 0));
+        SearchTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         SearchTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SearchTextFieldActionPerformed(evt);
@@ -164,28 +167,20 @@ public class Frontend extends javax.swing.JFrame {
         });
         getContentPane().add(VideosJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 160, 30));
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 12.png"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 160, 30));
-
         URLTextField.setEditable(false);
         URLTextField.setBackground(new java.awt.Color(153, 153, 0));
-        URLTextField.setForeground(new java.awt.Color(153, 153, 255));
+        URLTextField.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         getContentPane().add(URLTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 112, 1000, 30));
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 15.png"))); // NOI18N
-        jButton10.setMnemonic('M');
-        jButton10.setToolTipText("View");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
+        ViewJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 15.png"))); // NOI18N
+        ViewJButton.setMnemonic('M');
+        ViewJButton.setToolTipText("View");
+        ViewJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
+                ViewJButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 61, 45));
+        getContentPane().add(ViewJButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 61, 45));
 
         RenameJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Group 4.png"))); // NOI18N
         RenameJButton.setMnemonic('R');
@@ -320,10 +315,6 @@ public class Frontend extends javax.swing.JFrame {
         URLTextField.setText("Videos");
     }//GEN-LAST:event_VideosJButtonActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
     private void DeleteJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteJButtonActionPerformed
         // TODO add your handling code here:
         FileOper.Delete(path);
@@ -403,30 +394,54 @@ public class Frontend extends javax.swing.JFrame {
         source = path;
     }//GEN-LAST:event_MovejButtonActionPerformed
 
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+    private void ViewJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewJButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton10ActionPerformed
+    }//GEN-LAST:event_ViewJButtonActionPerformed
 
     private void SearchjButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchjButtonActionPerformed
         // TODO add your handling code here:
-        String src;
-        if (new File(path).isDirectory()) {
-            src = path;
-        } else {
-            src = new File(path).getParent();
+       String url=URLTextField.getText();
+        String fileName = SearchTextField.getText();
+        ArrayList<File> foundFiles=new ArrayList<File>();
+        switch(url){
+            case "This PC":
+                for(File file: FileOper.getDrives()){
+                    foundFiles.addAll(FileOper.Search(file, fileName));
+                }
+                break;
+            case "Desktop":
+                foundFiles.addAll(FileOper.Search(FileOper.getDesktop(), fileName));
+                break;
+            case "Music":
+                foundFiles.addAll(FileOper.Search(FileOper.getMusic(), fileName));
+                break;
+            case "Documents":
+                foundFiles.addAll(FileOper.Search(FileOper.getDocument(), fileName));
+                break;
+            case "Downloads":
+                foundFiles.addAll(FileOper.Search(FileOper.getDownload(), fileName));
+                break;
+            case "Videos":
+                foundFiles.addAll(FileOper.Search(FileOper.getVideo(), fileName));
+                break;
+            case "Pictures":
+                foundFiles.addAll(FileOper.Search(FileOper.getPicture(), fileName));
+                break;
+            default:
+                foundFiles.addAll(FileOper.Search(new File(url), fileName));
         }
-        FileOper.Search(new File(src), SearchTextField.getText());
+        if(foundFiles.size()==0){
+            JOptionPane.showMessageDialog(null, "File has not been found.");
+        }
+        else{
+            File[] files = foundFiles.toArray(new File[foundFiles.size()]);
+            start(files);
+        }
     }//GEN-LAST:event_SearchjButtonActionPerformed
 
     private void SearchTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchTextFieldActionPerformed
         // TODO add your handling code here:
-        String src;
-        if (new File(path).isDirectory()) {
-            src = path;
-        } else {
-            src = new File(path).getParent();
-        }
-        FileOper.Search(new File(src), SearchTextField.getText());
+        
     }//GEN-LAST:event_SearchTextFieldActionPerformed
 
     /**
@@ -441,7 +456,7 @@ public class Frontend extends javax.swing.JFrame {
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
             if (!(file.isHidden())) {
-                makeJLabel(file);
+                makeJButton(file,true);
             }
         }
     }
@@ -453,34 +468,25 @@ public class Frontend extends javax.swing.JFrame {
         URLTextField.setText("This PC");
         for (File file : listFiles) {
             System.out.println("File:" + file.getPath());
-            makeJLabel(file);
+            makeJButton(file,false);
         }
     }
 
-    public void makeJLabel(File file) {
+    public void makeJButton(File file, boolean isSearch) {
         String text;
-
-        if (!"".equals(file.getName())) {
+        Icon icon = FileSystemView.getFileSystemView().getSystemIcon( file );
+        if (!"".equals(file.getName()) && isSearch) {
             text = file.getName();
         } else {
             text = file.getPath();
         }
-
-        JButton label = new JButton();
-        label.setText(text);
-        label.setBorder(BorderFactory.createEmptyBorder(4, 6, 6, 4));
-        label.setForeground(Color.green);
-        label.setBackground(Color.red);
-
-//        label.setBorder(BorderFactory.createLineBorder(Color.GREEN , 3));
-//        label.setPreferredSize(new Dimension(100, 30));
-//        label.addKeyListener(new KeyListener(){
-//            @override
-//            public void KeyPressed(KeyEvent evt){
-//                if(evt.isActionKey())
-//            }
-//        });
-        label.addMouseListener(new MouseAdapter() {
+        JButton btn = new JButton(icon);
+        btn.setText(text);
+        btn.setBorder(BorderFactory.createEmptyBorder(10,8,10,8));
+        btn.setSize(40,40);
+        btn.setForeground(Color.black);
+        btn.setBackground(Color.white);
+        btn.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (e.getClickCount() == 1) {
@@ -499,41 +505,41 @@ public class Frontend extends javax.swing.JFrame {
                 }
             }
         });
-        DisplayPanel.add(label);
+        DisplayPanel.add(btn);
     }
 
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> {
-//            Frontend front = new Frontend();
-//            front.start(front.FileOper.getDrives());
-//            front.setVisible(true);
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Frontend.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> {
+            Frontend front = new Frontend();
+            front.start(front.FileOper.getDrives());
+            front.setVisible(true);
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BackJButton;
@@ -556,8 +562,7 @@ public class Frontend extends javax.swing.JFrame {
     private javax.swing.JButton ThisPCJButton;
     private javax.swing.JTextField URLTextField;
     private javax.swing.JButton VideosJButton;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton ViewJButton;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
